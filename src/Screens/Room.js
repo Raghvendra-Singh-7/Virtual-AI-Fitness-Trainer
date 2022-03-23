@@ -5,8 +5,10 @@ import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
 import { drawKeypoints, drawSkeleton } from "../utilities";
 import Navbar  from "../components/NavComponent";
-
+import { useLocation } from "react-router-dom";
+import { AuthErrorCodes } from "firebase/auth";
 function Room() {
+  const location = useLocation();
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -59,7 +61,8 @@ function Room() {
   return (
     <div className="App">
     <Navbar/>
-      <header className="App-header">
+    <h1 className=" text-white">{location.state.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rep&nbsp;:&nbsp;0</h1>
+      <header className="App-header" style={{marginLeft: "10px",marginRight: "10px",opacity: 0.9}}>
       
         <Webcam
           ref={webcamRef}

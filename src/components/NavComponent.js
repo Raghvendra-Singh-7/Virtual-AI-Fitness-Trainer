@@ -26,7 +26,7 @@ export default function NavComponent() {
     <Container>
     <Navbar.Brand href="/home">Ai Fitness</Navbar.Brand>
     <Nav className="me-auto">
-      <Nav.Link href="/room">Exercise Room</Nav.Link>
+      
       <Nav.Link href="/dashboard">Dashboard</Nav.Link>
       <Nav.Link href="/Exercise">Exercises</Nav.Link>
     </Nav>
