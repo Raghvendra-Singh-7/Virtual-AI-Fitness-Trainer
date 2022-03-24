@@ -29,6 +29,7 @@ export default function NavComponent() {
       
       <Nav.Link href="/dashboard">Dashboard</Nav.Link>
       <Nav.Link href="/Exercise">Exercises</Nav.Link>
+      <Nav.Link href="/UserProfile">Profile</Nav.Link>
     </Nav>
     <Nav>
       <Nav.Link eventKey={2} onClick={signout}>
