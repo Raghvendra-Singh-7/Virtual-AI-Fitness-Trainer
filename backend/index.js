@@ -3,7 +3,8 @@
 
  const app=express()
 
- const DB='mongodb+srv://VibhorSingh:Vibh0r$ingh@cluster0.shi3y.mongodb.net/fitness?retryWrites=true&w=majority'
+//  const DB=process.env.MONGO_URI
+const DB="mongodb+srv://VibhorSingh:Vibh0r$ingh@cluster0.shi3y.mongodb.net/fitness?retryWrites=true&w=majority"
  mongoose.connect(DB,{
      useNewUrlParser: true,
     //  useCreateIndex: true,
