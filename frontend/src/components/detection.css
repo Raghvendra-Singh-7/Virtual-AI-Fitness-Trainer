@@ -1,0 +1,23 @@
+.webcam{
+     transform: scaleX(-1);
+     position: absolute;
+    width: 1000;
+    height:1000;
+   
+    
+}
+.canvas{
+      transform: scaleX(-1);
+      position: absolute;
+      width: 1000;
+    height:1000;
+    
+    
+     
+}
+.exerciseRoom
+{   
+     
+  margin-top: '100px';
+  vertical-align: middle;
+}

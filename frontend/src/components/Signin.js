@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import React,{useRef, useState} from 'react'
-import "./signup.css";
+// import "./signup.css";
 import { Button, Card, Form , Alert } from 'react-bootstrap'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {Container} from 'react-bootstrap'
@@ -42,7 +42,8 @@ export default function Signin() {
 
   return (
     <Container
-    className="p-5 d-flex align-item-center justify-content-center "
+  
+    className="signin p-5 d-flex align-item-center justify-content-center "
     style={{minHeight:"100vh",width:'auto'}}
     >
     <div className="bg-transparent w-100" style={{maxWidth:'400px'}}>
