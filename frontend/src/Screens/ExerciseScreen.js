@@ -16,7 +16,7 @@ export default function ExerciseScreen() {
     <Card.Text>
     Jumping jacks are a type of plyometric exercise that can help you jump higher by building lower body strength.
     </Card.Text>
-    <Button variant="primary" onClick={()=>navigate('/room', { state: { id: 1, name: "Jumping jacks" } })}  >Lets Exercise</Button>
+    <Button variant="primary" onClick={()=>navigate('/room', { state: { id: 1, name: "jumpingJacks" } })}  >Lets Exercise</Button>
     
   </Card.Body>
 </Card>
@@ -27,7 +27,7 @@ export default function ExerciseScreen() {
     <Card.Text>
     The squat is a dynamic strength training exercise that requires several muscles in your upper and lower body to work together simultaneously. 
     </Card.Text>
-    <Button variant="primary" onClick={()=>navigate('/room', { state: { id: 2, name: "Squats" } })}>Lets Exercise</Button>
+    <Button variant="primary" onClick={()=>navigate('/room', { state: { id: 2, name: "squats" } })}>Lets Exercise</Button>
     
   </Card.Body>
 </Card>

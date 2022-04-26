@@ -27,7 +27,7 @@ function Detection({
 		task: "classification",
 		debug: true,
 	};
-
+    
 	const modelInfo = {
 		// model: `E:/Virtual-AI-Fitness-Trainer/frontend/src/components/model/model.json`,
 		// metadata: `E:/Virtual-AI-Fitness-Trainer/frontend/src/components/model/model_meta.json`,
@@ -35,9 +35,9 @@ function Detection({
 		// model: `http://localhost:4000/data/models/${location.state.name}/model.json`,
 		// metadata: `http://localhost:4000/data/models/${location.state.name}/model_meta.json`,
 		// weights: `http://localhost:4000/data/models/${location.state.name}/model.weights.bin`,
-		model: `http://localhost:4000/data/models/jumpingJacks/model.json`,
-		metadata: `http://localhost:4000/data/models/jumpingJacks/model_meta.json`,
-		weights: `http://localhost:4000/data/models/jumpingJacks/model.weights.bin`,
+		model: `http://localhost:4000/data/models/${location.state.name}/model.json`,
+		metadata: `http://localhost:4000/data/models/${location.state.name}/model_meta.json`,
+		weights: `http://localhost:4000/data/models/${location.state.name}/model.weights.bin`,
 		
 	};
 	const detect = () => {
@@ -130,6 +130,7 @@ function Detection({
 					  }
 					
 				  }
+				  
 				  if(c1==0&&c==0)
 					{
 					  c2+=1;
@@ -137,7 +138,7 @@ function Detection({
 					}
 				  console.log("Set count ="+c2);
 				  //<Speech text={c2}/>
-				  console.log(TextToSpeech.talk)
+				//   console.log(TextToSpeech.talk)
 				  setRep(c2);
 				  setCalories((c2*x).toFixed(1));
 				  
