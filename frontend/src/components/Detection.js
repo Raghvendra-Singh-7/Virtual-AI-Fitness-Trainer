@@ -7,12 +7,19 @@ import './detection.css';
 import NavComponent from './NavComponent'
 import TextToSpeech from 'text-to-speech-js';
 import { useLocation } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import axios from "axios";
 function Detection({
 
 }) {
-	let c1=0;
+	const navigate=useNavigate();
+	const auth = getAuth();
+	const current = new Date();
+	let c1=1;
 	let c2=0;
-	let c=0;
+	let c=1;
 	let x=0.2;
 	const location = useLocation();
 	const webcamRef = useRef(null);
@@ -89,6 +96,24 @@ function Detection({
 			});
 		});
 	};
+ 
+	const exerciseCompleted =()=>{
+		// console.log(auth)
+      
+      
+		const data = {
+			calories:calories,
+			email:auth.currentUser.email
+			//     weight: userweight
+		};
+		axios.post("http://localhost:4000/user", data)     
+		 .then(res => console.log(res))      
+		 .catch(err => console.log("err"));
+		
+		navigate('/Exercise')
+
+	}
+	
 	const classifyPose = (pose) => {
 		let inputs = [];
 
@@ -113,7 +138,7 @@ function Detection({
 				 {
 				  console.log('lol error'+error);
 				 }
-				 else if (results[0].confidence > 0.75) {
+				 else if (results[0].confidence > 0.90) {
 					if(results[0].label=='p')
 					  {
 					//    poseLabel = 'Correct Pose';
@@ -128,14 +153,15 @@ function Detection({
 						//poseLabel = 'Rest Position';
 						console.log('Rest Position');
 					  }
+					  if(c1==0&&c==0)
+					  {
+						c2+=1;
+						c=1;
+					  }
 					
 				  }
 				  
-				  if(c1==0&&c==0)
-					{
-					  c2+=1;
-					  c=1;
-					}
+				  
 				  console.log("Set count ="+c2);
 				  //<Speech text={c2}/>
 				//   console.log(TextToSpeech.talk)
@@ -171,7 +197,10 @@ function Detection({
 			<div className=" h-full w-full flex justify-items-center   p-10">
 			 <NavComponent/> 
 			 <h1 style={{marginLeft:'40%'}} className=" text-white">{location.state.name}</h1>
-			 <h3  style={{marginLeft:'30%'}} className=" text-white">Rep&nbsp;:&nbsp;{rep}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Calories Burned:&nbsp;{calories}</h3>
+			 <h3  style={{marginLeft:'30%'}} className=" text-white">Rep&nbsp;:&nbsp;{rep}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Calories Burned:&nbsp;{calories}&nbsp;&nbsp; <Button variant="primary" size="lg" onClick={exerciseCompleted}>
+     Exercise Completed
+  </Button>
+  </h3>
 				<div className="exerciseRoom" style={{marginLeft:'30%'}} >
 				
 					<Webcam ref={webcamRef} muted={true} className="webcam" />

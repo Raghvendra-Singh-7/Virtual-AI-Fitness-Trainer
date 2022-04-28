@@ -18,6 +18,7 @@ import { getAuth } from "firebase/auth";
 import ExerciseScreen from "../Screens/ExerciseScreen";
 import UserProfile from "../Screens/UserProfile";
 import UpdateProfile from "../Screens/UpdateProfile";
+import New from "./newChart";
 function App() {
   const auth = getAuth();
   return (
@@ -29,7 +30,7 @@ function App() {
           <Route path="/room" element={<Room />} />
           <Route path="*" element={<NoPage />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/dashboard" element={<ChartsPage />} />
+          <Route path="/dashboard" element={<New />} />
           <Route path="/Exercise" element={<ExerciseScreen />} />
           <Route path="/UserProfile" element={<UserProfile />} />
           <Route path="/UpdateProfile" element={<UpdateProfile />} />

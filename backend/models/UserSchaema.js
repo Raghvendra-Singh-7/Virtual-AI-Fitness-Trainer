@@ -4,6 +4,7 @@ const userSchema=new mongoose.Schema({
     name:{
         type:String,
         required:true
+        
     },
    
     age:{
@@ -17,7 +18,13 @@ const userSchema=new mongoose.Schema({
     email:{
         type:String,
         required:true
+    },
+    calories:
+    {
+        type:Number,
+        required:false
     }
+    
 })
 
 module.exports=mongoose.model('Userss',userSchema)

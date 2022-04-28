@@ -4,8 +4,11 @@ import { Line,Chart} from "react-chartjs-2";
 import "./chart.css";
 import { MDBContainer  } from "mdbreact";
 import Navbar from './NavComponent'
+import { getAuth} from "firebase/auth";
 class ChartsPage extends React.Component {
-  state = {
+  constructor(props) {
+    super(props);
+  this.state = {
     dataLine: {
       labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
       datasets: [
@@ -28,11 +31,32 @@ class ChartsPage extends React.Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [100, 200, 250,300 ,200 , 250, 300]
+          data: [10, 5, 25,1 ,3 , 0, 0]
         }
+        
       ]
-    }
+
+    },
+    calories:0
   };
+}
+updateCal=(data) =>{
+  this.setState({calories:data.calories })
+}
+componentDidMount() {
+  getAuth().onAuthStateChanged(function(user) {
+    if (user) {
+      console.log(getAuth().currentUser.email);
+      fetch('http://localhost:4000/user/'+getAuth().currentUser.email)
+      .then(response => response.json())
+      .then((data) =>{this.updateCal(data)})
+      .catch(err=>console.log(err));
+
+    } else {
+      console.log('no auth');
+    }
+  });
+    }
 
   render() {
     return (
@@ -44,6 +68,7 @@ class ChartsPage extends React.Component {
         
       <MDBContainer >
         <h3 className="mt-5">Calorie Status</h3>
+        <h3>Calories Burned today:{this.state.calories}</h3>
         <Line data={this.state.dataLine} options={{ responsive: true }} />
       </MDBContainer>
       </div>
