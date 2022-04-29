@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card'
 import { useNavigate } from 'react-router-dom';
 import { Button,CardGroup } from 'react-bootstrap'
 export default function ExerciseScreen() {
+  
   const navigate=useNavigate();
   return (
     <>
@@ -32,13 +33,21 @@ export default function ExerciseScreen() {
   </Card.Body>
 </Card>
  <Card style={{ minwidth: '18rem',width: '18rem',margin:'10px' }}>
-  <Card.Img variant="top" src="https://th.bing.com/th/id/OIP.jfZWlGQv_qSn5RkuHbkcFwHaD4?pid=ImgDet&rs=1" />
+  <Card.Img variant="top" src="https://images.myupchar.com/8840/webp/Standing_Dumbbell_Curl_ke_fayde__karne_ka_sahi_tarika__prakar__galtiyan_aur_sujhav.webp" />
   <Card.Body>
-    <Card.Title>Lateral Leg Raises</Card.Title>
+    <Card.Title>Dumbell Curl</Card.Title>
     <Card.Text>
-    Lateral leg raises using the cable machine is a great exercise for working out the gluteus medius. In ordinary life, these muscles are involved in the work indirectly. However, they give a rounded attractive shape to the upper part of the buttocks.
+   
+    
+Tips:
+
+Keep your elbows close to your torso while performing this exercise.
+Avoid jerking the dumbbells as you raise and lower them. Use a slow, continuous motion to do so.
+
+
+
     </Card.Text>
-    <Button variant="primary" onClick={()=>navigate('/room', { state: { id: 3, name: "Lateral Leg Raises" } })}>Lets Exercise</Button>
+    <Button variant="primary" onClick={()=>navigate('/room', { state: { id: 3, name: "dumbellCurls" } })}>Lets Exercise</Button>
     
   </Card.Body>
 </Card>
